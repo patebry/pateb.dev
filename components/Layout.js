@@ -1,6 +1,6 @@
-import classNames from 'classnames';
-import { useEffect } from 'react';
-import styles from './Layout.module.css';
+import classNames from 'classnames'
+import { useEffect } from 'react'
+import styles from './Layout.module.css'
 
 export function GradientBackground({ variant, className }) {
   const classes = classNames(
@@ -9,45 +9,45 @@ export function GradientBackground({ variant, className }) {
       [styles.colorBackgroundBottom]: variant === 'small',
     },
     className
-  );
+  )
 
-  return <div className={classes} />;
+  return <div className={classes} />
 }
 
 export default function Layout({ children }) {
   const setAppTheme = () => {
-    const darkMode = localStorage.getItem('theme') === 'dark';
-    const lightMode = localStorage.getItem('theme') === 'light';
+    const darkMode = localStorage.getItem('theme') === 'dark'
+    const lightMode = localStorage.getItem('theme') === 'light'
 
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('dark')
     } else if (lightMode) {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove('dark')
     }
-    return;
-  };
+    return
+  }
 
   const handleSystemThemeChange = () => {
-    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     darkQuery.onchange = (e) => {
       if (e.matches) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
       } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+        document.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
       }
-    };
-  };
+    }
+  }
 
   useEffect(() => {
-    setAppTheme();
-  }, []);
+    setAppTheme()
+  }, [])
 
   useEffect(() => {
-    handleSystemThemeChange();
-  }, []);
+    handleSystemThemeChange()
+  }, [])
 
   return (
     <div className="relative pb-24 overflow-hidden">
@@ -55,5 +55,5 @@ export default function Layout({ children }) {
         {children}
       </div>
     </div>
-  );
+  )
 }

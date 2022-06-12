@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default function Header({ name }) {
   return (
@@ -10,5 +10,5 @@ export default function Header({ name }) {
         </Link>
       </p>
     </header>
-  );
+  )
 }

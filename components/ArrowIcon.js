@@ -16,5 +16,5 @@ export default function ArrowIcon({ className, color = 'text-primary' }) {
         d="M5 12h14M12 19l7-7-7-7"
       ></path>
     </svg>
-  );
+  )
 }

@@ -26,7 +26,7 @@ const sunIcon = (
       </clipPath>
     </defs>
   </svg>
-);
+)
 
 const moonIcon = (
   <svg
@@ -45,7 +45,7 @@ const moonIcon = (
       d="M19.5 10.79A9 9 0 119.71 1a7 7 0 009.79 9.79v0z"
     ></path>
   </svg>
-);
+)
 
 const ThemeSwitcher = () => {
   return (
@@ -54,8 +54,8 @@ const ThemeSwitcher = () => {
         type="button"
         aria-label="Use Dark Mode"
         onClick={() => {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
+          document.documentElement.classList.add('dark')
+          localStorage.setItem('theme', 'dark')
         }}
         className="flex items-center h-full pr-2 dark:bg-primary rounded-3xl flex justify-center align-center p-2 w-24 h-10 transition"
       >
@@ -66,16 +66,16 @@ const ThemeSwitcher = () => {
         type="button"
         aria-label="Use Light Mode"
         onClick={() => {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
+          document.documentElement.classList.remove('dark')
+          localStorage.setItem('theme', 'light')
         }}
         className="flex items-center h-full pr-2 bg-primary dark:bg-transparent rounded-3xl flex justify-center align-center p-2 w-24 h-10 transition"
       >
         {sunIcon}
       </button>
     </div>
-  );
-};
+  )
+}
 
 export default function Footer({ copyrightText }) {
   return (
@@ -85,5 +85,5 @@ export default function Footer({ copyrightText }) {
       </p>
       <ThemeSwitcher />
     </footer>
-  );
+  )
 }

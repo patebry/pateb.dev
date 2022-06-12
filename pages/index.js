@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { getPosts } from '../utils/mdx-utils';
+import Link from 'next/link'
+import { getPosts } from '../utils/mdx-utils'
 
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Layout, { GradientBackground } from '../components/Layout';
-import ArrowIcon from '../components/ArrowIcon';
-import { getGlobalData } from '../utils/global-data';
-import SEO from '../components/SEO';
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Layout, { GradientBackground } from '../components/Layout'
+import ArrowIcon from '../components/ArrowIcon'
+import { getGlobalData } from '../utils/global-data'
+import SEO from '../components/SEO'
 
 export default function Index({ posts, globalData }) {
   return (
@@ -56,12 +56,12 @@ export default function Index({ posts, globalData }) {
         className="absolute bottom-0 opacity-20 dark:opacity-10"
       />
     </Layout>
-  );
+  )
 }
 
 export function getStaticProps() {
-  const posts = getPosts();
-  const globalData = getGlobalData();
+  const posts = getPosts()
+  const globalData = getGlobalData()
 
-  return { props: { posts, globalData } };
+  return { props: { posts, globalData } }
 }
