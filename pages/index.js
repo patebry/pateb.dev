@@ -7,6 +7,7 @@ import ArrowIcon from '../components/ArrowIcon'
 import { getGlobalData } from '../utils/global-data'
 
 export default function Index({ posts, globalData }) {
+  // console.log(posts)
   return (
     <Layout>
       <main className="w-full">
