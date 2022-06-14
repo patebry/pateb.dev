@@ -49,7 +49,7 @@ const moonIcon = (
 
 const ThemeSwitcher = () => {
   return (
-    <div className="flex mt-6 bg-white justify-center dark:bg-gray-900 rounded-3xl border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0">
+    <div className="flex mt-6 bg-white justify-center dark:bg-gray-900 rounded-3xl border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10">
       <button
         type="button"
         aria-label="Use Dark Mode"
