@@ -53,7 +53,7 @@ export default function Layout({ children, globalData }) {
   }, [])
 
   return (
-    <div className="relative pb-24 overflow-hidden min-h-screen">
+    <div className="relative pb-16 overflow-hidden min-h-screen">
       <SEO title="pateb.dev" description="Pate Bryant Blog" />
       <Header name="pateb.dev" />
       <div className="flex flex-col items-center max-w-2xl w-full mx-auto">
