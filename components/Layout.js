@@ -1,23 +1,17 @@
 import classNames from 'classnames'
 import { useEffect } from 'react'
-import { getGlobalData } from '../utils/global-data'
+import Footer from './Footer'
 import Header from './Header'
 import styles from './Layout.module.css'
 import SEO from './SEO'
 
-export function GradientBackground({ variant, className }) {
-  const classes = classNames(
-    {
-      [styles.colorBackground]: variant === 'large',
-      [styles.colorBackgroundBottom]: variant === 'small',
-    },
-    className
-  )
-
-  return <div className={classes} />
+// get random property from object passed in
+const randP = (obj) => {
+  const keys = Object.keys(obj)
+  return obj[keys[(keys.length * Math.random()) << 0]]
 }
 
-export default function Layout({ children, globalData }) {
+export default function Layout({ children }) {
   const setAppTheme = () => {
     const darkMode = localStorage.getItem('theme') === 'dark'
     const lightMode = localStorage.getItem('theme') === 'light'
@@ -53,12 +47,19 @@ export default function Layout({ children, globalData }) {
   }, [])
 
   return (
-    <div className="relative pb-16 overflow-hidden min-h-screen">
+    <div
+      className={classNames('relative pb-16 overflow-hidden min-h-screen', {
+        [randP(styles)]: true,
+      })}
+    >
       <SEO title="pateb.dev" description="Pate Bryant Blog" />
       <Header name="pateb.dev" />
       <div className="flex flex-col items-center max-w-2xl w-full mx-auto">
         {children}
       </div>
+      <Footer
+        copyrightText={`All Rights Reserved ${new Date().getFullYear()}`}
+      />
     </div>
   )
 }
