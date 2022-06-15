@@ -1,18 +1,15 @@
 import Link from 'next/link'
-import { getPosts } from '../utils/mdx-utils'
+import { getRecentPosts } from '../utils/mdx-utils'
 
-import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import ArrowIcon from '../components/ArrowIcon'
-import { getGlobalData } from '../utils/global-data'
 
-export default function Index({ posts, globalData }) {
-  // console.log(posts)
+export default function Index({ posts }) {
   return (
     <Layout>
       <main className="w-full">
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
-          {globalData.blogTitle}
+          Most Recent Posts
         </h1>
         <ul className="w-full">
           {posts.map((post) => (
@@ -49,8 +46,7 @@ export default function Index({ posts, globalData }) {
 }
 
 export function getStaticProps() {
-  const posts = getPosts()
-  const globalData = getGlobalData()
+  const posts = getRecentPosts(5)
 
-  return { props: { posts, globalData } }
+  return { props: { posts } }
 }

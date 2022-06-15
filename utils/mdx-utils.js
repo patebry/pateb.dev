@@ -91,3 +91,7 @@ export const getPreviousPostBySlug = (slug) => {
     slug: previousPostSlug,
   }
 }
+
+export const getRecentPosts = (postCount) => {
+  return getPosts().slice(0, 5)
+}

@@ -1,4 +1,3 @@
-import { getGlobalData } from '../../utils/global-data'
 import {
   getNextPostBySlug,
   getPostBySlug,
@@ -26,13 +25,7 @@ const components = {
   Head,
 }
 
-export default function PostPage({
-  source,
-  frontMatter,
-  prevPost,
-  nextPost,
-  globalData,
-}) {
+export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
   return (
     <Layout>
       <SEO title={frontMatter.title} description={frontMatter.description} />
@@ -84,14 +77,12 @@ export default function PostPage({
 }
 
 export const getStaticProps = async ({ params }) => {
-  const globalData = getGlobalData()
   const { mdxSource, data } = await getPostBySlug(params.slug)
   const prevPost = getPreviousPostBySlug(params.slug)
   const nextPost = getNextPostBySlug(params.slug)
 
   return {
     props: {
-      globalData,
       source: mdxSource,
       frontMatter: data,
       prevPost,
