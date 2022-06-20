@@ -7,5 +7,10 @@
 
 [[redirects]]
 from = "/posts"
-  to = "/"
-  status = 301
+to = "/"
+status = 307
+
+[[redirects]]
+from = "/tags"
+to = "/"
+status = 307

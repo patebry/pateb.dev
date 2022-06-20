@@ -6,12 +6,20 @@ import rehypePrism from '@mapbox/rehype-prism'
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), 'posts')
+// TAGS_PATH is useful when you want to get the path to a specific file
+export const TAGS_PATH = path.join(process.cwd(), 'tags')
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path))
+
+// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
+export const tagFilePaths = fs
+  .readdirSync(TAGS_PATH)
+  // Only include md(x) files
+  .filter((tag) => /\.mdx?$/.test(tag))
 
 export const sortPostsByDate = (posts) => {
   return posts.sort((a, b) => {
@@ -92,6 +100,28 @@ export const getPreviousPostBySlug = (slug) => {
   }
 }
 
-export const getRecentPosts = (postCount) => {
-  return getPosts().slice(0, 5)
+export const getRecentPosts = (postCount = 5) => {
+  return getPosts().slice(0, postCount)
+}
+
+export const getTagPostsData = async (tag) => {
+  const metadataFile = fs.readFileSync(path.join(TAGS_PATH, `${tag}.mdx`))
+  const { content, data: metaData } = matter(metadataFile)
+  const posts = getPosts().filter((x) => {
+    return x.data.tags.includes(tag)
+  })
+
+  const mdxSource = await serialize(content, {
+    // Optionally pass remark/rehype plugins
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypePrism],
+    },
+    scope: metaData,
+  })
+
+  return {
+    mdxSource,
+    posts,
+  }
 }

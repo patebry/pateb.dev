@@ -5,7 +5,7 @@ import Header from './Header'
 import styles from './Layout.module.css'
 import SEO from './SEO'
 
-// get random property from object passed in
+// get random property from object
 const randP = (obj) => {
   const keys = Object.keys(obj)
   return obj[keys[(keys.length * Math.random()) << 0]]
@@ -49,7 +49,7 @@ export default function Layout({ children }) {
   return (
     <div
       className={classNames('relative pb-16 overflow-hidden min-h-screen', {
-        [randP(styles)]: true,
+        // [randP(styles)]: true,
       })}
     >
       <SEO title="pateb.dev" description="Pate Bryant Blog" />
