@@ -57,9 +57,7 @@ export default function Layout({ children }) {
     >
       <SEO title="pateb.dev" description="Pate Bryant Blog" />
       <Header name="pateb.dev" />
-      <div className="flex flex-col items-center max-w-2xl w-full mx-auto">
-        {children}
-      </div>
+      <div className="max-w-2xl w-full mx-auto">{children}</div>
       <Footer
         copyrightText={`All Rights Reserved ${new Date().getFullYear()}`}
       />
