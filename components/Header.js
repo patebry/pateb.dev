@@ -8,7 +8,7 @@ export default function Header({ name }) {
       <div className="flex items-center">
         <Image
           src={pbLogo}
-          alt="pb"
+          alt="Pate Bryant Logo"
           className="dark:invert cursor-pointer"
           width="80"
           height="80"

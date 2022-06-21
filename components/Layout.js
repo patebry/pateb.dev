@@ -48,9 +48,12 @@ export default function Layout({ children }) {
 
   return (
     <div
-      className={classNames('relative pb-16 overflow-hidden min-h-screen', {
-        // [randP(styles)]: true,
-      })}
+      className={classNames(
+        'relative pb-16 overflow-hidden min-h-screen mx-6',
+        {
+          // [randP(styles)]: true,
+        }
+      )}
     >
       <SEO title="pateb.dev" description="Pate Bryant Blog" />
       <Header name="pateb.dev" />
